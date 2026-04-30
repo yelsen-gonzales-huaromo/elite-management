@@ -1,0 +1,32 @@
+{
+  "common": {
+    "search": "Search...",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "users": "Users",
+    "tasks": "Tasks",
+    "settings": "Settings",
+    "apps": "Apps",
+    "chats": "Chats"
+  },
+  "users": {
+    "title": "User Management",
+    "description": "Manage your users and their roles here.",
+    "invite": "Invite User",
+    "columns": {
+      "name": "Name",
+      "email": "Email",
+      "status": "Status",
+      "role": "Role"
+    }
+  }
+}

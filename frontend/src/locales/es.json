@@ -1,0 +1,32 @@
+{
+  "common": {
+    "search": "Buscar...",
+    "actions": "Acciones",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "success": "Éxito"
+  },
+  "nav": {
+    "dashboard": "Tablero",
+    "users": "Usuarios",
+    "tasks": "Tareas",
+    "settings": "Configuración",
+    "apps": "Aplicaciones",
+    "chats": "Chats"
+  },
+  "users": {
+    "title": "Gestión de Usuarios",
+    "description": "Gestiona tus usuarios y sus roles aquí.",
+    "invite": "Invitar Usuario",
+    "columns": {
+      "name": "Nombre",
+      "email": "Correo",
+      "status": "Estado",
+      "role": "Rol"
+    }
+  }
+}
