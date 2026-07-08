@@ -1,104 +1,104 @@
 # template-react
 
-An enterprise-grade, production-ready full-stack template for building Multi-Tenant Software-As-A-Service (SaaS) applications. It combines a robust **Spring Boot 3.x (Java 21)** backend implementing Hexagonal Architecture & Domain-Driven Design (DDD) with a premium **React (Vite + TypeScript + Shadcn UI)** admin dashboard frontend.
+Una plantilla full-stack de nivel empresarial lista para producción para construir aplicaciones Software-As-A-Service (SaaS) Multi-Tenant. Combina un backend robusto en **Spring Boot 3.x (Java 21)** que implementa Arquitectura Hexagonal y Diseño Guiado por el Dominio (DDD) con un frontend premium de panel de administración en **React (Vite + TypeScript + Shadcn UI)**.
 
 ![Dashboard Preview](frontend/public/images/Template%20React.png)
 
 ---
 
-## 🚀 Repository Naming Scheme
-This project follows a clean template naming structure for multi-frontend setups sharing the same Spring Boot backend:
+## 🚀 Esquema de Nombres del Repositorio
+Este proyecto sigue una estructura de nombres limpia para configuraciones multi-frontend que comparten el mismo backend de Spring Boot:
 
-*   **`template-react`** (This repository)
-*   **`template-angular`** (For the Angular version)
-*   **`template-vanilla`** (For the Vanilla JS version)
-
----
-
-## 🏗️ Architecture Overview
-
-The project is structured as a monorepo containing:
-*   `/frontend`: React SPA, styled with TailwindCSS & Radix UI (via Shadcn), using TanStack Router.
-*   `/backend`: Spring Boot REST API, built with a single-module Gradle layout using Hexagonal Ports & Adapters Architecture.
-
-### Backend Hexagonal Layer Separation
-Within `backend/src/main/java/com/elitemanagement/features/[feature_name]/`:
-1.  **Domain:** Core business logic, Entities (Aggregate Roots), and Ports (interfaces). Pure Java with zero framework dependency.
-2.  **Application:** Use Cases implementation orchestrating domain rules.
-3.  **Infrastructure:** Adapters implementing ports (e.g. REST controllers, JPA repository adapters, JWT decoders).
+*   **`template-react`** (Este repositorio)
+*   **`template-angular`** (Para la versión de Angular)
+*   **`template-vanilla`** (Para la versión de Vanilla JS)
 
 ---
 
-## ⚡ Key Features
+## 🏗️ Resumen de la Arquitectura
+
+El proyecto está estructurado como un monorepositorio que contiene:
+*   `/frontend`: SPA en React, estilizada con TailwindCSS y Radix UI (mediante Shadcn), utilizando TanStack Router.
+*   `/backend`: API REST en Spring Boot, construida con un diseño de monódulo Gradle utilizando Arquitectura Hexagonal de Puertos y Adaptadores.
+
+### Separación de Capas Hexagonales en el Backend
+Dentro de `backend/src/main/java/com/elitemanagement/features/[nombre_caracteristica]/`:
+1.  **Domain (Dominio):** Lógica de negocio central, Entidades (Aggregate Roots) y Puertos (interfaces). Java puro con cero dependencias de frameworks.
+2.  **Application (Aplicación):** Implementación de Casos de Uso que orquestan las reglas de dominio.
+3.  **Infrastructure (Infraestructura):** Adaptadores que implementan los puertos (ej. controladores REST, adaptadores de repositorios JPA, decodificadores JWT).
+
+---
+
+## ⚡ Características Clave
 
 ### Frontend
-- **Light/Dark Mode** & RTL (Right-to-Left) language support out of the box.
-- **10+ Pre-built Pages** (Dashboard, Users management, Roles, Settings, Profile).
-- **TanStack Router** for type-safe routing.
-- **Shadcn UI** customized components (Calendar, Dialog, Select, Sidebar, Sonner).
+- **Modo Claro/Oscuro** y soporte para idiomas RTL (de derecha a izquierda) desde el primer momento.
+- **Más de 10 páginas pre-construidas** (Panel de control, gestión de usuarios, roles, configuraciones, perfil).
+- **TanStack Router** para un enrutamiento seguro de tipos.
+- **Componentes personalizados de Shadcn UI** (Calendario, Diálogos, Selects, Sidebar, Sonner).
 
 ### Backend
-- **Java 21 LTS & Spring Boot 3.3.0**.
-- **Dynamic Multi-Tenancy:** Uses PostgreSQL schemas dynamically resolved per request using a custom `TenantConnectionProvider` matching the client request headers or JWT payload.
-- **Permission-Based Security (RBAC):** Fine-grained permission strings (e.g., `read:users`, `write:users`) verified via method-level annotations (`@PreAuthorize`).
-- **JJWT Token Signature:** Token generation, parsing, and context binding.
-- **Flyway Migrations:** Fully version-controlled database migrations per schema.
-- **ArchUnit Guards:** Automated tests validating architectural package boundaries on compile time.
+- **Java 21 LTS y Spring Boot 3.3.0**.
+- **Multi-Tenancy Dinámico:** Utiliza esquemas de PostgreSQL resueltos dinámicamente por petición a través de un `TenantConnectionProvider` personalizado que coincide con las cabeceras de la petición del cliente o el payload del JWT.
+- **Seguridad Basada en Permisos (RBAC):** Cadenas de permisos de grano fino (ej. `read:users`, `write:users`) verificadas a través de anotaciones a nivel de método (`@PreAuthorize`).
+- **Firma de Tokens con JJWT:** Generación, parseo y vinculación al contexto de tokens.
+- **Migraciones con Flyway:** Migraciones de bases de datos completamente controladas por versiones por esquema.
+- **Guardas con ArchUnit:** Pruebas automatizadas que validan los límites arquitectónicos de los paquetes en tiempo de compilación.
 
 ---
 
-## 🛠️ Local Development Setup
+## 🛠️ Configuración para Desarrollo Local
 
-### Prerequisites
+### Requisitos Previos
 - [Docker](https://www.docker.com/)
-- [Java 21 (Temurin LTS recommended)](https://adoptium.net/)
-- [Node.js (v18+) & pnpm](https://nodejs.org/)
+- [Java 21 (Se recomienda Temurin LTS)](https://adoptium.net/)
+- [Node.js (v18+) y pnpm](https://nodejs.org/)
 
-### 1. Database (PostgreSQL)
-Start the PostgreSQL container from the root directory using the environment variables declared in `.env`:
+### 1. Base de Datos (PostgreSQL)
+Inicia el contenedor de PostgreSQL desde el directorio raíz utilizando las variables de entorno declaradas en `.env`:
 ```bash
 docker-compose up -d
 ```
 
-### 2. Run Backend
-Navigate to the `/backend` folder. Open in your favorite IDE (IntelliJ / VS Code) to let it automatically resolve dependencies, or run using terminal:
+### 2. Ejecutar el Backend
+Dirígete a la carpeta `/backend`. Ábrela en tu IDE favorito (IntelliJ / VS Code) para permitir que resuelva automáticamente las dependencias, o ejecútalo mediante la terminal:
 ```bash
 cd backend
 ./gradlew bootRun
 ```
-*The server will run on `http://localhost:8080`.*
+*El servidor correrá en `http://localhost:8080`.*
 
-### 3. Run Frontend
-Navigate to the `/frontend` folder, install dependencies and start the Vite dev server:
+### 3. Ejecutar el Frontend
+Dirígete a la carpeta `/frontend`, instala las dependencias e inicia el servidor de desarrollo de Vite:
 ```bash
 cd frontend
-pnpm install
-pnpm run dev
+npm install
+npm run dev
 ```
-*The web app will run on `http://localhost:5173` (or check console output).*
+*La aplicación web correrá en `http://localhost:5173` (o revisa la salida de la consola).*
 
 ---
 
-## 📁 Repository Directory Structure
+## 📁 Estructura de Directorios del Repositorio
 
 ```text
-├── .env                                # Local database env variables
-├── docker-compose.yml                  # PostgreSQL service runner
-├── backend/                            # Spring Boot 3.x backend
+├── .env                                # Variables de entorno locales de la base de datos
+├── docker-compose.yml                  # Ejecutor del servicio PostgreSQL
+├── backend/                            # Backend en Spring Boot 3.x
 │   ├── src/main/java/com/elitemanagement/
-│   │   ├── config/                     # Core configs (SecurityConfig, TenantDatabaseConfig)
-│   │   ├── shared/                     # Shared kernel (TenantContext, GlobalExceptionHandler)
-│   │   └── features/                   # Business contexts (auth, users)
+│   │   ├── config/                     # Configs centrales (SecurityConfig, TenantDatabaseConfig)
+│   │   ├── shared/                     # Núcleo compartido (TenantContext, GlobalExceptionHandler)
+│   │   └── features/                   # Contextos de negocio (auth, users)
 │   │       ├── auth/
 │   │       └── users/
 │   └── src/main/resources/
-│       ├── application.yml             # App properties
-│       └── db/migration/               # Flyway SQL migrations
-└── frontend/                           # React + Vite frontend
+│       ├── application.yml             # Propiedades de la aplicación
+│       └── db/migration/               # Migraciones SQL de Flyway
+└── frontend/                           # Frontend en React + Vite
     ├── src/
-    │   ├── components/                 # Tailwind + Shadcn components
-    │   ├── features/                   # Client-side views and states
-    │   ├── context/                    # Auth and global contexts
-    │   └── routes/                     # TanStack Router files
+    │   ├── components/                 # Componentes Tailwind + Shadcn
+    │   ├── features/                   # Vistas y estados del lado del cliente
+    │   ├── context/                    # Contextos de autenticación y globales
+    │   └── routes/                     # Archivos del enrutador TanStack
     └── package.json
 ```
