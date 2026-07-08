@@ -2,6 +2,8 @@
 
 An enterprise-grade, production-ready full-stack template for building Multi-Tenant Software-As-A-Service (SaaS) applications. It combines a robust **Spring Boot 3.x (Java 21)** backend implementing Hexagonal Architecture & Domain-Driven Design (DDD) with a premium **React (Vite + TypeScript + Shadcn UI)** admin dashboard frontend.
 
+![Dashboard Preview](frontend/public/images/Template%20React.png)
+
 ---
 
 ## 🚀 Repository Naming Scheme
