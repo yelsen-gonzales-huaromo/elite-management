@@ -1,6 +1,6 @@
 {
-  "name": "EliteStack Management",
-  "short_name": "EliteStack",
+  "name": "Template React",
+  "short_name": "TemplateReact",
   "description": "Sistema de gestión administrativa de alto rendimiento para empresas y estado.",
   "start_url": "/",
   "display": "standalone",

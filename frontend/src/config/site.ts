@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: import.meta.env.VITE_APP_NAME || 'EliteStack Management',
-  shortName: import.meta.env.VITE_APP_SHORT_NAME || 'EliteStack',
+  name: import.meta.env.VITE_APP_NAME || 'Template React',
+  shortName: import.meta.env.VITE_APP_SHORT_NAME || 'TemplateReact',
   description: import.meta.env.VITE_APP_DESCRIPTION || 'Sistema de gestión administrativa de alto rendimiento para empresas y estado.',
   url: import.meta.env.VITE_APP_URL || 'https://tu-dominio.com',
   ogImage: '/images/og-image.png',

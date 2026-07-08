@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: template-react-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/elitedb
+    username: eliteuser
+    password: elitepassword
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+app:
+  security:
+    jwt:
+      secret: default-very-secure-secret-key-of-at-least-256-bits-length-must-be-long-enough-for-hs256-signature
+      expiration-ms: 3600000
